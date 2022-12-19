@@ -1,0 +1,32 @@
+import { useState } from 'react';
+
+const useTrafficLight = () => {
+  const [redLight, setRedLight] = useState(false);
+  const [yellowLight, setYellowLight] = useState(false);
+  const [greenLight, setGreenLight] = useState(false);
+
+  const handleLightClick = (light) => {
+    if (light === 'red') {
+      setRedLight(true);
+      setYellowLight(false);
+      setGreenLight(false);
+    } else if (light === 'yellow') {
+      setRedLight(false);
+      setYellowLight(true);
+      setGreenLight(false);
+    } else if (light === 'green') {
+      setRedLight(false);
+      setYellowLight(false);
+      setGreenLight(true);
+    }
+  };
+
+  return {
+    redLight,
+    yellowLight,
+    greenLight,
+    handleLightClick,
+  };
+};
+
+export default useTrafficLight;
